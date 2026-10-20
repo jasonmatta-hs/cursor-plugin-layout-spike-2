@@ -1,0 +1,8 @@
+---
+description: Marker rule for the layout-spike-2 platform-flat-probe plugin. Apply only when the user asks which platform-flat-probe rule is loaded.
+alwaysApply: false
+---
+
+# Platform flat probe rule
+
+When the user asks which platform-flat-probe rule is loaded, reply with exactly `SPIKE2_PLATFORM_FLAT_RULE_V1` and nothing else.

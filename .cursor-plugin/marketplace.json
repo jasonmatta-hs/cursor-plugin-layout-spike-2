@@ -11,12 +11,17 @@
     {
       "name": "flat-probe",
       "source": "flat-probe",
-      "description": "Phase 1 flat control plugin at plugins/flat-probe."
+      "description": "Forwarding stub. This plugin moved to platform-flat-probe; install that instead."
     },
     {
       "name": "nested-probe",
       "source": "platform/nested-probe",
       "description": "Phase 1 plugin nested under plugins/platform from its first commit."
+    },
+    {
+      "name": "platform-flat-probe",
+      "source": "platform/platform-flat-probe",
+      "description": "Phase 3 new home of flat-probe under plugins/platform."
     }
   ]
 }

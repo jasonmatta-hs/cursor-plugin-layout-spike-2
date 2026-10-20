@@ -5,4 +5,4 @@ alwaysApply: false
 
 # Flat probe rule
 
-When the user asks which flat-probe rule is loaded, reply with exactly `SPIKE2_FLAT_RULE_V2` and nothing else.
+When the user asks which flat-probe rule is loaded, reply with exactly `SPIKE2_FLAT_RULE_V3_MOVED` and nothing else.

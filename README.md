@@ -41,7 +41,9 @@ Ask these in a new chat and expect these exact replies:
 
 Passing proves a nested path installs cleanly.
 
-### Phase 2 (this commit, control)
+### Phase 2 (passed, control)
+
+Result: both plugins updated to the V2 markers without uninstalling. The plugin cache moved to the phase 2 commit.
 
 Change only the markers to V2. Keep both plugins at the same paths.
 
@@ -60,16 +62,36 @@ A chat may echo a line-number prefix such as `10|` from its file reader. That pr
 
 Passing proves content updates reach existing installs when the path does not move. If this fails, the problem is caching, not paths.
 
-### Phase 3 (later commit, migration hack)
+### Phase 3 (this commit, migration hack)
 
-- Leave `plugins/flat-probe` in place as a forwarding stub. Its skill replies with a V3 marker that tells the user to install `platform-flat-probe`.
-- Add a new plugin `platform-flat-probe` at `plugins/platform/platform-flat-probe`.
+- `flat-probe` stays at `plugins/flat-probe` as a forwarding stub. Its skill replies with a V3 marker that tells the user to install `platform-flat-probe`.
+- The new plugin `platform-flat-probe` lives at `plugins/platform/platform-flat-probe`.
+- `nested-probe` does not change.
 
-Passing proves existing installs keep loading and the new location installs cleanly under a new name.
+Steps:
+
+1. Do not uninstall anything. Restart Cursor so it fetches the new commit.
+2. In a new chat, ask "Is flat-probe installed?" Expect `SPIKE2_FLAT_V3_MOVED install platform-flat-probe`. This proves the existing install still loads and got the stub.
+3. Install `platform-flat-probe` from the marketplace.
+4. In a new chat, ask "Is platform-flat-probe installed?" Expect `SPIKE2_PLATFORM_FLAT_V1`.
+5. Control: ask "Is nested-probe installed?" Expect `SPIKE2_NESTED_V2`.
+6. Optional: uninstall `flat-probe`, open a new chat, and confirm `platform-flat-probe` still answers `SPIKE2_PLATFORM_FLAT_V1`.
+
+| Question | Expected reply |
+| --- | --- |
+| Is flat-probe installed? | `SPIKE2_FLAT_V3_MOVED install platform-flat-probe` |
+| Is platform-flat-probe installed? | `SPIKE2_PLATFORM_FLAT_V1` |
+| Is nested-probe installed? | `SPIKE2_NESTED_V2` |
+| Which flat-probe rule is loaded? (optional) | `SPIKE2_FLAT_RULE_V3_MOVED` |
+| Which platform-flat-probe rule is loaded? (optional) | `SPIKE2_PLATFORM_FLAT_RULE_V1` |
+
+As in phase 2, open a new chat after each refresh, and ignore any `10|` line-number prefix.
+
+What a pass means: existing installs keep working through a move, and the new location installs cleanly under its new name. So a real move should keep the old folder as a stub and publish the new path under a new name.
 
 ## Install steps
 
 1. In Cursor, add `https://github.com/jasonmatta-hs/cursor-plugin-layout-spike-2` as a marketplace.
 2. Install `flat-probe` and `nested-probe`.
 3. Open a new chat and ask the phase 1 questions above.
-4. Stop after phase 1.
+4. Follow the phase 2 and phase 3 steps above in order.

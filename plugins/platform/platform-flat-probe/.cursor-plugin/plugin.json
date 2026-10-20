@@ -1,0 +1,9 @@
+{
+  "name": "platform-flat-probe",
+  "displayName": "Platform flat probe",
+  "version": "0.1.0",
+  "description": "Throwaway plugin for layout-spike-2 phase 3: the new home of flat-probe under plugins/platform. Not a Hootsuite marketplace plugin.",
+  "author": {
+    "name": "jasonmatta-hs"
+  }
+}

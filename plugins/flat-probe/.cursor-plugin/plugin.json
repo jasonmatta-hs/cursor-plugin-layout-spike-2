@@ -2,7 +2,7 @@
   "name": "flat-probe",
   "displayName": "Flat probe",
   "version": "0.1.0",
-  "description": "Throwaway flat control plugin for layout-spike-2. Not a Hootsuite marketplace plugin.",
+  "description": "Forwarding stub for layout-spike-2. This plugin moved to platform-flat-probe. Not a Hootsuite marketplace plugin.",
   "author": {
     "name": "jasonmatta-hs"
   }
