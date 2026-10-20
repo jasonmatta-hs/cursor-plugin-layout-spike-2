@@ -5,4 +5,4 @@ alwaysApply: false
 
 # Nested probe rule
 
-When the user asks which nested-probe rule is loaded, reply with exactly `SPIKE2_NESTED_RULE_V1` and nothing else.
+When the user asks which nested-probe rule is loaded, reply with exactly `SPIKE2_NESTED_RULE_V2` and nothing else.

@@ -7,4 +7,4 @@ description: Report the nested-probe marker for the layout-spike-2 test. Use whe
 
 When the user asks whether nested-probe is installed, or asks for the nested-probe marker, reply with exactly this line and nothing else:
 
-SPIKE2_NESTED_V1
+SPIKE2_NESTED_V2

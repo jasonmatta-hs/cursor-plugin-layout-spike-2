@@ -21,7 +21,9 @@ A plugin's name plus its folder path is its identity.
 
 Each phase changes one thing.
 
-### Phase 1 (this commit)
+### Phase 1 (passed)
+
+Result: both plugins installed and replied with the V1 markers.
 
 Fresh install of two plugins:
 
@@ -39,9 +41,22 @@ Ask these in a new chat and expect these exact replies:
 
 Passing proves a nested path installs cleanly.
 
-### Phase 2 (later commit, control)
+### Phase 2 (this commit, control)
 
 Change only the markers to V2. Keep both plugins at the same paths.
+
+Do not uninstall. Wait for Cursor to refresh the marketplace, then open a new chat. Each chat loads its skill list when it opens, so an old chat keeps the old marker. If a new chat still shows V1, restart Cursor and try again.
+
+Ask these in the new chat and expect these exact replies:
+
+| Question | Expected reply |
+| --- | --- |
+| Is flat-probe installed? | `SPIKE2_FLAT_V2` |
+| Is nested-probe installed? | `SPIKE2_NESTED_V2` |
+| Which flat-probe rule is loaded? (optional) | `SPIKE2_FLAT_RULE_V2` |
+| Which nested-probe rule is loaded? (optional) | `SPIKE2_NESTED_RULE_V2` |
+
+A chat may echo a line-number prefix such as `10|` from its file reader. That prefix is not part of the marker.
 
 Passing proves content updates reach existing installs when the path does not move. If this fails, the problem is caching, not paths.
 
