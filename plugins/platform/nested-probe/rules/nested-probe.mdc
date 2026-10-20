@@ -1,0 +1,8 @@
+---
+description: Marker rule for the layout-spike-2 nested-probe plugin. Apply only when the user asks which nested-probe rule is loaded.
+alwaysApply: false
+---
+
+# Nested probe rule
+
+When the user asks which nested-probe rule is loaded, reply with exactly `SPIKE2_NESTED_RULE_V1` and nothing else.

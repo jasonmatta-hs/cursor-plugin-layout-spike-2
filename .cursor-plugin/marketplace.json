@@ -1,0 +1,22 @@
+{
+  "name": "layout-spike-2",
+  "owner": {
+    "name": "jasonmatta-hs"
+  },
+  "metadata": {
+    "description": "Throwaway marketplace that tests nested plugin installs and a migration-safe way to move plugins.",
+    "pluginRoot": "plugins"
+  },
+  "plugins": [
+    {
+      "name": "flat-probe",
+      "source": "flat-probe",
+      "description": "Phase 1 flat control plugin at plugins/flat-probe."
+    },
+    {
+      "name": "nested-probe",
+      "source": "platform/nested-probe",
+      "description": "Phase 1 plugin nested under plugins/platform from its first commit."
+    }
+  ]
+}

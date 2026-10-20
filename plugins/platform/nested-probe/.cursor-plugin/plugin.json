@@ -1,0 +1,9 @@
+{
+  "name": "nested-probe",
+  "displayName": "Nested probe",
+  "version": "0.1.0",
+  "description": "Throwaway plugin nested under plugins/platform for layout-spike-2. Not a Hootsuite marketplace plugin.",
+  "author": {
+    "name": "jasonmatta-hs"
+  }
+}
